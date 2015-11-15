@@ -1,17 +1,17 @@
 {
-  "name": "digital_mirror",
+  "name": "code_seven",
   "version": "0.0.1",
   "description": "",
   "main": "",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thalida/DigitalMirror.git"
+    "url": "git+https://github.com/thalida/CodeSeven.git"
   },
   "bugs": {
-    "url": "https://github.com/thalida/DigitalMirror/issues"
+    "url": "https://github.com/thalida/CodeSeven/issues"
   },
-  "homepage": "https://github.com/thalida/DigitalMirror#readme",
+  "homepage": "https://github.com/thalida/CodeSeven#readme",
   "devDependencies": {},
   "dependencies": {
     "angular": "^1.4.7",
