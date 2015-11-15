@@ -11,9 +11,14 @@ app.directive 'questionRow', [
 			index: '@'
 			question: '='
 			answer: '='
+			onAnswerCb: '&onAnswer'
 		}
 		controllerAs: 'questionRow'
 		controller: ['$element', '$attrs', ( $el, attrs ) ->
+			@onChange = () =>
+				@onAnswerCb({
+					response: {question: @question, answer: @answer}
+				})
 			console.log(this)
 		]
 ]

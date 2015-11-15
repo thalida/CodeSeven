@@ -1,7 +1,8 @@
 <div class="questionRow">
 	{{questionRow.question.title}}
-	<select 
-		ng-options="ans for ans in questionRow.question.answers" 
-		ng-model="questionRow.answer">
+	<select
+		ng-options="ans for ans in questionRow.question.answers"
+		ng-model="questionRow.answer"
+		ng-change="questionRow.onChange()">
 	</select>
 </div>
