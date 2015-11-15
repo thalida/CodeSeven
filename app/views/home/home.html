@@ -1,4 +1,8 @@
 <div class="home_view">
 	{{home.viewname}}
+	<div ng-repeat="question in home.questions">
+		<question-row index="{{$index}}" question="question"></question-row>
+	</div>
+	
 </div>
 <div ui-view></div>

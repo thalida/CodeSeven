@@ -7,8 +7,13 @@ app.directive 'questionRow', [
 		restrict: 'E'
 		templateUrl: 'components/questionRow/questionRow.html'
 		scope: {}
-		bindToController: {}
+		bindToController: {
+			index: '@'
+			question: '='
+			answer: '='
+		}
 		controllerAs: 'questionRow'
 		controller: ['$element', '$attrs', ( $el, attrs ) ->
+			console.log(this)
 		]
 ]

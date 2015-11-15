@@ -1,1 +1,7 @@
-<div class="questionRow"></div>
+<div class="questionRow">
+	{{questionRow.question.title}}
+	<select 
+		ng-options="ans for ans in questionRow.question.answers" 
+		ng-model="questionRow.answer">
+	</select>
+</div>
