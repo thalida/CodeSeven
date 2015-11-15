@@ -7,8 +7,8 @@ app.controller 'HomeCtrl', [() ->
 		{
 			title: 'titleA'
 			answers: ['1', '2', '3']
-			action: () ->
-				console.log( 'TitleA: do this' )
+			action: ( params ) ->
+				console.log( 'TitleA: do this', params )
 		}
 		{
 			title: 'titleB'
@@ -17,8 +17,8 @@ app.controller 'HomeCtrl', [() ->
 		{
 			title: 'titleC'
 			answers: ['1', '2', '3']
-			action: () ->
-				console.log( 'TitleC: do that' )
+			action: ( params ) ->
+				console.log( 'TitleC: do that', params )
 		}
 		{
 			title: 'titleD'
@@ -28,7 +28,7 @@ app.controller 'HomeCtrl', [() ->
 
 	@onQuestionAnswer = ( res ) ->
 		console.log( 'onQuestionAnswer:', res )
-		res.question?.action?()
+		res.question?.action?( res )
 
 	return
 ]
