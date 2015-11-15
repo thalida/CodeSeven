@@ -1,14 +1,14 @@
 'use strict'
 
-app.directive 'demo', [
+app.directive 'questionRow', [
 	'$rootScope'
 	'$state'
 	( $rootScope, $state ) ->
 		restrict: 'E'
-		templateUrl: 'components/demo/demo.html'
+		templateUrl: 'components/questionRow/questionRow.html'
 		scope: {}
 		bindToController: {}
-		controllerAs: 'demo'
+		controllerAs: 'questionRow'
 		controller: ['$element', '$attrs', ( $el, attrs ) ->
 		]
 ]
