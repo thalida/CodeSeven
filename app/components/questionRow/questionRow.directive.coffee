@@ -17,7 +17,7 @@ app.directive 'questionRow', [
 		controller: ['$element', '$attrs', ( $el, attrs ) ->
 			@onChange = () =>
 				@onAnswerCb({
-					response: {question: @question, answer: @answer}
+					response: {index: @index, question: @question, answer: @answer}
 				})
 			console.log(this)
 		]
