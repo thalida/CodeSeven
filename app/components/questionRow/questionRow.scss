@@ -1,1 +1,10 @@
-.questionRow {}
+.questionRow {
+	margin-bottom: 20px;
+	overflow: hidden;
+
+	&-title {
+		width: 300px;
+		display: block;
+		float: left;
+	}
+}
