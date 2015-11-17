@@ -1,11 +1,25 @@
 <div class="home_view">
 	{{home.viewname}}
-	<div ng-repeat="question in home.questions">
-		<question-row
-			index="{{$index}}"
-			question="question"
-			on-answer="home.onQuestionAnswer( response )">
-		</question-row>
+	<div class="questions">
+		<div ng-repeat="question in home.questions">
+			<question-row
+				index="{{$index}}"
+				question="question"
+				on-answer="home.onQuestionAnswer( response )">
+			</question-row>
+		</div>
+	</div>
+
+	<div class="checkboxes">
+		<div ng-repeat="color in home.colors">
+			<input type="checkbox">{{color}}
+		</div>
+
+		<hr>
+
+		<div ng-repeat="number in home.numbers">
+			<input type="checkbox">{{number}}
+		</div>
 	</div>
 
 </div>

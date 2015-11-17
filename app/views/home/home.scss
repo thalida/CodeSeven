@@ -1,1 +1,14 @@
-.home_view {}
+.home_view {
+	overflow: auto;
+
+	.questions {
+		display: block;
+		float: left;
+	}
+
+	.checkboxes {
+		display: block;
+		float: left;
+		width: 200px;
+	}
+}

@@ -6,6 +6,9 @@ app.controller 'HomeCtrl', [() ->
 	totalRacks = 5
 	maxNumberRacks = (num for num in [0..(totalRacks - 1)])
 
+	@colors = ['G', 'Y', 'Bk', 'Br', 'R', 'P', 'Bl']
+	@numbers = (num for num in [0..7])
+
 	@questions = [
 		{
 			title: 'On how many racks is the sum of the numbers 18 or more?'
