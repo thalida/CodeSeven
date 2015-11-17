@@ -15,6 +15,9 @@ app.directive 'questionRow', [
 		}
 		controllerAs: 'questionRow'
 		controller: ['$element', '$attrs', ( $el, attrs ) ->
+			@index = parseInt( @index, 10 )
+			@questionNum = @index + 1
+
 			@onChange = () =>
 				@onAnswerCb({
 					response: {index: @index, question: @question, answer: @answer}
