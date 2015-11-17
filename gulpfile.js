@@ -12,49 +12,6 @@ var webpackConfig = require("./webpack.config.js");
 var yargs = require('yargs');
 
 
-gulp.task("webpack:build", function(callback) {
-	var myConfig = Object.create(webpackConfig);
-	myConfig.plugins = myConfig.plugins.concat(
-		new webpack.DefinePlugin({
-			"process.env": {
-				// This has effect on the react lib size
-				"NODE_ENV": JSON.stringify("production")
-			}
-		}),
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.UglifyJsPlugin()
-	);
-
-	// run webpack
-	webpack(myConfig, function(err, stats) {
-		if(err) throw new gutil.PluginError("webpack:build", err);
-		gutil.log("[webpack:build]", stats.toString({
-			colors: true
-		}));
-		callback();
-	});
-});
-
-gulp.task("webpack:server", function(callback) {
-	// modify some webpack config options
-	var myConfig = Object.create(webpackConfig);
-	myConfig.devtool = "eval";
-	myConfig.debug = true;
-
-	// Start a webpack-dev-server
-	new WebpackDevServer(webpack(myConfig), {
-		publicPath: myConfig.output.publicPath,
-		hot: true,
-		quiet: false,
-		noInfo: true,
-		stats: {
-			colors: true
-		}
-	}).listen(8000, "0.0.0.0", function(err) {
-		if(err) throw new gutil.PluginError("webpack-dev-server", err);
-		gutil.log("[webpack-dev-server]", "http://localhost:8000/webpack-dev-server/index.html");
-	});
-});
 
 var escapeRegExp = function (str) {
     return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
@@ -123,7 +80,53 @@ var create = {
 			}))
 			.pipe(gulp.dest( config.distDir ));
 	}
-}
+};
+
+
+
+gulp.task("webpack:build", function(callback) {
+	var myConfig = Object.create(webpackConfig);
+	myConfig.plugins = myConfig.plugins.concat(
+		new webpack.DefinePlugin({
+			"process.env": {
+				// This has effect on the react lib size
+				"NODE_ENV": JSON.stringify("production")
+			}
+		}),
+		new webpack.optimize.DedupePlugin(),
+		new webpack.optimize.UglifyJsPlugin()
+	);
+
+	// run webpack
+	webpack(myConfig, function(err, stats) {
+		if(err) throw new gutil.PluginError("webpack:build", err);
+		gutil.log("[webpack:build]", stats.toString({
+			colors: true
+		}));
+		callback();
+	});
+});
+
+gulp.task("webpack:server", function(callback) {
+	// modify some webpack config options
+	var myConfig = Object.create(webpackConfig);
+	myConfig.devtool = "eval";
+	myConfig.debug = true;
+
+	// Start a webpack-dev-server
+	new WebpackDevServer(webpack(myConfig), {
+		publicPath: myConfig.output.publicPath,
+		hot: true,
+		quiet: false,
+		noInfo: true,
+		stats: {
+			colors: true
+		}
+	}).listen(8000, "0.0.0.0", function(err) {
+		if(err) throw new gutil.PluginError("webpack-dev-server", err);
+		gutil.log("[webpack-dev-server]", "http://localhost:8000/webpack-dev-server/index.html");
+	});
+});
 
 gulp.task("app:create", function(){
 	var argv = yargs
