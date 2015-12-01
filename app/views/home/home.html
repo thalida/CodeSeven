@@ -1,5 +1,5 @@
 <div class="home_view">
-	{{home.viewname}}
+
 	<div class="questions">
 		<div ng-repeat="question in home.questions">
 			<question-row
@@ -10,6 +10,10 @@
 		</div>
 	</div>
 
+	<number-triangle></number-triangle>
+
+	<!-- Create a component for the checkboxes -->
+	<br />
 	<div class="checkboxes">
 		<div ng-repeat="color in home.colors">
 			<input type="checkbox">{{color}}

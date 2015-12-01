@@ -1,0 +1,24 @@
+.numberTriangle {
+    display: block;
+    float: left;
+    border: 2px solid #000;
+
+    .red { color: red; }
+    .blue { color: #3366ff; }
+    .pink { color: #ff33cc; }
+    .brown { color: #663300; }
+    .green { color: green; }
+    .yellow { color: #ffcc00; }
+
+    .number {
+        display: inline-block;
+        font: bold 22px Arial, sans-serif;
+    }
+
+    .row {
+        width: 100%;
+        text-align: center;
+        letter-spacing: 10px;
+    }
+
+}
